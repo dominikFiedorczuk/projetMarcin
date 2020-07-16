@@ -187,10 +187,25 @@
                         <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
                         <div>+1 (555) 123-4567</div>
                     </div>
-                    <div class="col-lg-4 mr-auto text-center">
+                    <div class="col-lg-6 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                         {{ form_start(formNl) }}
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    {{form_row(formNl.naam)}}
+                                </div>
+                                <div class="col-lg-8">
+                                    {{form_row(formNl.voornaam)}}
+                                </div>
+                                <div class="col-lg-8">
+                                    {{form_row(formNl.email)}}
+                                </div>
+                                <div class="col-lg-8">
+                                    {{form_row(formNl.message)}}
+                                </div>
+                            </div>
+                        {{ form_end(formNl) }}
                     </div>
                 </div>
             </div>
