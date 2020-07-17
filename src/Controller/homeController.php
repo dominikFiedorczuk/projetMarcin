@@ -34,7 +34,7 @@ class homeController extends AbstractController {
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid()){
-                $this->contactFr($form);
+                $this->contact("fr", $form);
             }
 
             return $this->render(
@@ -49,7 +49,7 @@ class homeController extends AbstractController {
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid()){
-                $this->contactNl($form);
+                $this->contact("nl", $form);
             }
             return $this->render(
                 'nl/base.html.twig',
@@ -60,36 +60,34 @@ class homeController extends AbstractController {
         }
     }
 
-    private function contactFr($form){
+    private function contact($lang, $form){
         $data = $form->getData();
 
-        $message = (new \Swift_Message('Contact'))
-        ->setFrom("Formulaire@form")
-        ->setTo('contact.easypeps@gmail.com')
-        ->setBody(
-            'Nom: '.$data['nom']. '<br>'.
-            'Prenom: '.$data['prenom']. '<br>'.
-            'Mail ou numéro de contact: '.$data['email']. '<br>'.
-            'Message: '.$data['message']. '<br>',
-            'text/html'
-        );
-
-        $this->mailer->send($message);
-    }
-
-    private function contactNl($form){
-        $data = $form->getData();
-
-        $message = (new \Swift_Message('Contact'))
-        ->setFrom("Formulaire@form")
-        ->setTo('contact.easypeps@gmail.com')
-        ->setBody(
-            'Nom: '.$data['naam']. '<br>'.
-            'Prenom: '.$data['voornaam']. '<br>'.
-            'Mail ou numéro de contact: '.$data['email']. '<br>'.
-            'Message: '.$data['message']. '<br>',
-            'text/html'
-        );
+        if($lang == "fr"){
+            $message = (new \Swift_Message('Contact'))
+            ->setFrom("Formulaire@form")
+            ->setTo('contact.easypeps@gmail.com')
+            ->setBody(
+                'Nom: '.$data['nom']. '<br>'.
+                'Prenom: '.$data['prenom']. '<br>'.
+                'Mail ou numéro de contact: '.$data['email']. '<br>'.
+                'Message: '.$data['message']. '<br>',
+                'text/html'
+            );
+        }
+        
+        else {
+            $message = (new \Swift_Message('Contact'))
+            ->setFrom("Formulaire@form")
+            ->setTo('contact.easypeps@gmail.com')
+            ->setBody(
+                'Nom: '.$data['naam']. '<br>'.
+                'Prenom: '.$data['voornaam']. '<br>'.
+                'Mail ou numéro de contact: '.$data['email']. '<br>'.
+                'Message: '.$data['message']. '<br>',
+                'text/html'
+            );
+        }
 
         $this->mailer->send($message);
     }
