@@ -80,7 +80,7 @@ class adminController extends AbstractController {
             $manager->persist($user);
             $manager->flush();
 
-            $this->addFlash('success', "Dane konta zostaly zmienione !");
+            $this->addFlash('success', "Dane konta zostały zapisane !");
         }
 
         return $this->render(
