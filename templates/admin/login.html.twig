@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,26 +23,26 @@
                 <div class="card-body">
                     {% if error %}
                         <div class="alert alert-warning">
-                            <p>Pseudo lub haslo nie sa prawidlowe</p>
+                            <p>Nazwa użytkownika lub hasło nie jest prawidłowe, spróbuj ponownie ...</p>
                         </div>
                     {% endif %}   
                     <form method="post">
                         <div class="form-group">
-                            <label for="_username">Nazwa uzytkownika</label>
-                            <input type="text" name="_username" class="form-control" placeholder="Uzytkownik ..." value="{{username}}">
+                            <label for="_username">Nazwa użytkownika</label>
+                            <input type="text" name="_username" class="form-control" placeholder="Użytkownik ..." value="{{username}}">
                         </div>
                         <div class="form-group">
-                            <label for="_password">Haslo</label>
-                            <input type="password" name="_password" class="form-control" placeholder="Haslo ...">
+                            <label for="_password">Hasło</label>
+                            <input type="password" name="_password" class="form-control" placeholder="Hasło ...">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-lock-open"></i>
-                                Zaloguj sie ! 
+                                Zaloguj się ! 
                             </button>
                             <a href="{{path('lang', {lang: "fr"})}}" class="btn btn-link">
                                 <i class="fas fa-arrow-circle-left"></i>
-                                Wroc do strony glownej
+                                Wróć do strony głównej
                             </a>
                         </div>
                     </form>
