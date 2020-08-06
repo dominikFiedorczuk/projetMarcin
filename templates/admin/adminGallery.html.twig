@@ -1,25 +1,40 @@
 {% extends 'admin/base.html.twig' %}
-
+{% block scripts %}
+    <script src="/js/scripts/image-picker.js"></script>
+    <script src="/js/scripts/image-picker.min.js"></script>
+    <link rel="stylesheet" href="/css/scripts/image-picker.css">
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+{% endblock %}
 
 {% block main %}
-    <div class="text-center">
-            <h1>Zarzadzanie zdjeciami</h1>
-            <h3>{{folderImages.0.folder.name}}</h3>
+    <div class="text-center mb-4 mt-4">
+        <h1>Zarzadzanie zdjeciami</h1>
+        <h3>{{folder.name}}</h3>
     </div>
-    <div class="container">
-        <div class="row">
-                {% for key, value in folderImages %}
-                <div class="col mb-3">
-                    <div class="card" style="width:300px">
-                        <img src="{{value.url}}" class="rounded mb-3" alt="{{value.id}}">
-                        <div class="card-body">
-                            <div style="float:right">
-                            <i class="fas fa-trash-alt"></i>
-                            </div>
-                        </div>
-                    </div>
+        {% if folderImages is empty %}
+            <div class="row justify-content-center">
+                <h3 style="color: red">Brak dostepnych zdjec !</h3>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+            </div>
+        {% else %}
+            <div class="container">
+                <div class="row justify-content-center">
+                    <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
                 </div>
-                {% endfor %}
-        </div>
-    </div>
+                <div class="row">
+                    <select multiple="multiple" name="image" class="image-picker show-html">
+                        {% for key, value in folderImages %}
+                            <option data-img-src="{{value.url}}" value="{{value.id}}"></option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="btn btn-danger" onclick="pickAndDelete('{{csrf_token("del_img")}}')"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        {% endif %}    
+    
 {% endblock %}

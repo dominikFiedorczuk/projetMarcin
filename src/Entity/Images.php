@@ -27,6 +27,11 @@ class Images
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $localPath;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Images
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getLocalPath(): ?string
+    {
+        return $this->localPath;
+    }
+
+    public function setLocalPath(string $localPath): self
+    {
+        $this->localPath = $localPath;
 
         return $this;
     }

@@ -15,14 +15,6 @@ class homeController extends AbstractController {
     public function __construct(\Swift_Mailer $mail){
         $this->mailer = $mail;
     }
-    /**
-     * @Route("/", name="home")
-     */
-    public function home(){
-        return $this->render(
-            'fr/base.html.twig'
-        );
-    }
 
     /**
      * @Route("/{lang}", name="lang")
