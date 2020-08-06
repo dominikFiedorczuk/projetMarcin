@@ -18,28 +18,28 @@ class AdminProfileType extends AbstractType
         $builder
             ->add('pseudo', TextType::class,
             [
-                'label' => "Pseudonim",
+                'label' => "Nazwa użytkownika",
                 'attr'=> 
                 [
-                    "placeholder" => "Twoj pseudonim"
+                    "placeholder" => "Nazwa użytkownika ..."
                 ]
             ])
             ->add('password', RepeatedType::class,
             [
                 'type' => PasswordType::class,
-                'invalid_message' => "Oba hasla sie nie zgadzaja",
+                'invalid_message' => "Hasła się nie zgadzają ...",
                 'first_options'  => 
                 [
-                    'label' => 'Haslo'
+                    'label' => 'Hasło'
                 ],
                 'second_options' => 
                 [
-                    'label' => 'Potwierdz haslo'
+                    'label' => 'Potwierdż hasło'
                 ],
             ])
             ->add('save', SubmitType::class,
             [
-                'label' => "Zatwierdz"
+                'label' => "Zatwierdż"
             ])
         ;
     }
