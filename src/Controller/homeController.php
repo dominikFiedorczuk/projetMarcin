@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 
+use App\Entity\Images;
+use App\Entity\Folders;
 use App\Form\ContactFrType;
 use App\Form\ContactNlType;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,6 +84,104 @@ class homeController extends AbstractController {
         }
 
         $this->mailer->send($message);
+    }
+
+    /**
+     * @Route("/{lang}/{gallery}", name="gallery")
+     */
+    public function gallery($lang, $gallery){
+        $manager = $this->getDoctrine()->getManager();
+        $folderName = "";
+        if($lang == "fr"){
+            switch($gallery){
+                case 'balustrades': 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Balustrady");
+
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Balustrades";
+                break;
+                case 'portes':
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Bramy");
+                    
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Portes";
+                break;
+                case 'clotures' : 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Ogrodzenia");
+                    
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Clôtures";
+                break;
+            }
+
+            return $this->render(
+                'fr/gallery.html.twig',
+                [
+                    'photos' => $photos,
+                    'folderName' => $folderName
+                ]
+            );
+        }
+        else {
+            switch($gallery){
+                case 'balustrades': 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Balustrady");
+
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Balustrades";
+                break;
+                case 'portes':
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Bramy");
+                    
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Deuren";
+                break;
+                case 'clotures' : 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Ogrodzenia");
+                    
+                    $photos = $manager
+                    ->getRepository(Images::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Hekken";
+                break;
+            }
+                
+            return $this->render(
+                'nl/gallery.html.twig',
+                [
+                    'photos' => $photos,
+                    'folderName' => $folderName
+                ]
+            );
+        }
     }
     
 }

@@ -28,7 +28,7 @@ security:
 
             logout: 
                 path: logout
-                target: home  
+                target: / 
         main:
             anonymous: true
             lazy: true
@@ -36,7 +36,7 @@ security:
 
             logout: 
                 path: logout
-                target: home
+                target: /
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

@@ -33,16 +33,18 @@ class FakerFixtures extends Fixture
         $manager->persist($folder2);
         $manager->persist($folder3);
 
-        /*for($i=0; $i<10; $i++){
+        for($i=0; $i<30; $i++){
 
             $image = new Images();
-            $image->setUrl($faker->imageUrl(200,200, 'cats'));
+            $image
+            ->setUrl($faker->imageUrl(200,200, 'cats'))
+            ->setLocalPath($faker->imageUrl(600,600, 'cats'));
             $folder1->addImage($image);
 
             $manager->persist($image);
-        }*/
+        }
 
-        for($i=0; $i<10; $i++){
+        for($i=0; $i<30; $i++){
 
             $image = new Images();
             $image
@@ -53,7 +55,7 @@ class FakerFixtures extends Fixture
             $manager->persist($image);
         }
 
-        for($i=0; $i<10; $i++){
+        for($i=0; $i<30; $i++){
 
             $image = new Images();
             $image
