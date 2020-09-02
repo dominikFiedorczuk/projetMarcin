@@ -33,7 +33,7 @@ class FakerFixtures extends Fixture
         $manager->persist($folder2);
         $manager->persist($folder3);
 
-        for($i=0; $i<30; $i++){
+        /*for($i=0; $i<30; $i++){
 
             $image = new Images();
             $image
@@ -55,7 +55,7 @@ class FakerFixtures extends Fixture
             $manager->persist($image);
         }
 
-        for($i=0; $i<30; $i++){
+        /*for($i=0; $i<30; $i++){
 
             $image = new Images();
             $image
@@ -64,7 +64,7 @@ class FakerFixtures extends Fixture
             $folder3->addImage($image);
 
             $manager->persist($image);
-        }
+        }*/
 
         $roleAdmin = new Role();
         $roleAdmin

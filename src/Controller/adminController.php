@@ -93,7 +93,7 @@ class adminController extends AbstractController {
     }
 
     /**
-     * @Route("admin/gallery/{id}", name="gallery")
+     * @Route("admin/gallery/{id}", name="galleryAdmin")
      */
     public function adminGallery(Folders $id){
         $manager = $this->getDoctrine()->getManager();

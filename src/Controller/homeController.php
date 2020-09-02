@@ -38,7 +38,7 @@ class homeController extends AbstractController {
             );
         }
 
-        else {
+        if($lang == "nl") {
             $form = $this->createForm(ContactNlType::class);
             $form->handleRequest($request);
 
@@ -62,10 +62,10 @@ class homeController extends AbstractController {
             ->setFrom("Formulaire@form")
             ->setTo('contact.easypeps@gmail.com')
             ->setBody(
-                'Nom: '.$data['nom']. '<br>'.
-                'Prenom: '.$data['prenom']. '<br>'.
-                'Mail ou numéro de contact: '.$data['email']. '<br>'.
-                'Message: '.$data['message']. '<br>',
+                'Imie: '.$data['nom']. '<br>'.
+                'Nazwisko: '.$data['prenom']. '<br>'.
+                'Email lub numer telefonu: '.$data['email']. '<br>'.
+                'Wiadomosc: '.$data['message']. '<br>',
                 'text/html'
             );
         }
@@ -75,10 +75,10 @@ class homeController extends AbstractController {
             ->setFrom("Formulaire@form")
             ->setTo('contact.easypeps@gmail.com')
             ->setBody(
-                'Nom: '.$data['naam']. '<br>'.
-                'Prenom: '.$data['voornaam']. '<br>'.
-                'Mail ou numéro de contact: '.$data['email']. '<br>'.
-                'Message: '.$data['message']. '<br>',
+                'Imie: '.$data['naam']. '<br>'.
+                'Nazwisko: '.$data['voornaam']. '<br>'.
+                'Email lub numer telefonu: '.$data['email']. '<br>'.
+                'Wiadomosc: '.$data['message']. '<br>',
                 'text/html'
             );
         }

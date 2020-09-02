@@ -41,7 +41,7 @@
         <div id="collapseGallery" class="accordion-body collapse">
           <div class="list-group">   
           {% for key, value in galeries %}
-            <a href="{{path('gallery', {id: value.id})}}" class="list-group-item list-group-item-action"><i class="fas fa-folder-open"></i> {{value.name}}</a>
+            <a href="{{path('galleryAdmin', {id: value.id})}}" class="list-group-item list-group-item-action"><i class="fas fa-folder-open"></i> {{value.name}}</a>
           {% endfor %}          
           </div>
         </div>
@@ -72,7 +72,7 @@
                                 {% for key, value in galeries %}
                                 <div class="p-2 mr-3">
                                   <h6 class="card-title">
-                                    <a href="{{path('gallery', {id: value.id})}}" class="text-white"><i class="fas fa-folder-open fa-2x"></i> {{value.name}}</a>
+                                    <a href="{{path('galleryAdmin', {id: value.id})}}" class="text-white"><i class="fas fa-folder-open fa-2x"></i> {{value.name}}</a>
                                   </h6>
                                 </div>
                                 {% endfor %}

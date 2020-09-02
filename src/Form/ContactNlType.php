@@ -16,22 +16,22 @@ class ContactNlType extends AbstractType
         $builder
         ->add('naam', TextType::class, [
             'attr' => [
-                'placeholder' => "Jouw naam",
+                'placeholder' => "Uw naam",
             ]
         ])
         ->add('voornaam', TextType::class, [
             'attr' => [
-                'placeholder' => "Jouw voornaam",
+                'placeholder' => "Uw voornaam",
             ]
         ])
         ->add('email', TextType::class, [
             'attr' => [
-                'placeholder' => "Jouw email of telephonnumer",
+                'placeholder' => "Uw email of telephonnumer",
             ]
         ])
         ->add('message', TextareaType::class, [
             'attr' => [
-                'placeholder' => "Quel est votre message ?"
+                'placeholder' => "Wat is uw bericht?"
             ]
         ])
         ->add('save', SubmitType::class, [
