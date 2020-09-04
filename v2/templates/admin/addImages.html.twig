@@ -1,0 +1,30 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block scripts %}
+    
+    <link rel="stylesheet" href="/css/scripts/dropzone.css">
+    <script src="/js/scripts/dropzone.js"></script>
+    <script>
+        Dropzone.options.myAwesomeDropzone = {
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 100, // MB
+        accept: function(file, done) {
+          if (file.name.endsWith(".png") || file.name.endsWith(".jpg") ||file.name.endsWith(".PNG") || file.name.endsWith(".JPG")) {
+            done();
+          }
+          else { 
+                done("Przeniesiony plik nie może być dodadny z powodu formatu, proszę użyć formatu .png lub .jpg"); 
+            }
+        }
+    };
+    </script>
+{% endblock %}
+{% block main %}
+    <div class="text-center mb-4 mt-4">
+        <h1>Dodanie zdjec</h1>
+        <h3>{{folder.name}}</h3>
+    </div>
+    <form action="{{path('add_images', {idFolder: folder.id})}}" class="dropzone" id="my-awesome-dropzone">
+        <input type="hidden" name="token" value="{{csrf_token('upload_files')}}">
+    </form>
+{% endblock %}

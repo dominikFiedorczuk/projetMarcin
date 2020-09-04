@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Interfejs administracji</title>
+
+  <!-- Bootstrap core CSS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">   
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>        
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Custom styles for this template -->
+    <link href="/adminInterface/css/simple-sidebar.css" rel="stylesheet">
+
+    {% block scripts %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"> Administracja </div>
+      <div class="list-group list-group-flush">
+        <a href="{{path('admin_dashboard')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="{{path('admin_account')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-circle"></i> Zarządzanie kontem</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" data-toggle="collapse" data-target="#collapseGallery" aria-expanded="false" aria-controls="collapseGallery">
+        <i class="fas fa-images"></i>
+          Galeria <i class="fas fa-angle-right"></i>
+        </a>
+        <div id="collapseGallery" class="accordion-body collapse">
+          <div class="list-group">   
+          {% for key, value in galeries %}
+            <a href="{{path('galleryAdmin', {id: value.id})}}" class="list-group-item list-group-item-action"><i class="fas fa-folder-open"></i> {{value.name}}</a>
+          {% endfor %}          
+          </div>
+        </div>
+        <a href="{{path('logout')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-sign-out-alt"></i> Wylogowanie</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        {% block main %}
+          <div class="row justify-content-center">
+            <h1 class="mt-4">Witaj w interfejsie administracji !</h1>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <div class="card bg-primary text-white md-3 text-center">
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col">
+                              <h5 class="card-title">
+                                <i class="fas fa-images fa-2x"></i> Dostęp do galerii
+                              </h5>
+                              <br>
+                              <div class="d-flex justify-content-center">
+                                {% for key, value in galeries %}
+                                <div class="p-2 mr-3">
+                                  <h6 class="card-title">
+                                    <a href="{{path('galleryAdmin', {id: value.id})}}" class="text-white"><i class="fas fa-folder-open fa-2x"></i> {{value.name}}</a>
+                                  </h6>
+                                </div>
+                                {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+            <div class="col">
+                <div class="card bg-primary text-white md-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="card-title">
+                                  <a href="{{path('admin_account')}}" class="stretched-link text-white"><i class="fas fa-user-alt fa-2x"></i> Zarządzanie kontem</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div> 
+        {% endblock %}         
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>M&I BRAM-STER</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/style.css" rel="stylesheet" />
+
+        {% block scripts %}
+        {% endblock %}
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/nl#page-top"><img src="/img/icon.png" style="height: 40px" alt="logo"></a>
+                <a class="navbar-brand js-scroll-trigger" id="fr" href="{{path('lang', {'lang': 'fr'})}}"><span class="flag-icon flag-icon-fr"> </span> Français</a> 
+                <a class="navbar-brand js-scroll-trigger" id="nl" href="{{path('lang', {'lang': 'nl'})}}" style="color: orange"><span class="flag-icon flag-icon-nl"> </span> Nederlands</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/nl#about">Aanbiedingen</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/nl#services">Galerij</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/nl#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block main %}
+        <!-- Masthead-->
+            <header class="masthead">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center text-center">
+                        <div class="col-lg-10 align-self-end">
+                            <h1 class="text-uppercase text-white font-weight-bold">DRIE GENERATIES ERVARING EN TRADITIE</h1>
+                            <hr class="divider my-4" />
+                        </div>
+                        <div class="col-lg-8 align-self-baseline">
+                            <p class="text-white-75 font-weight-light mb-5">Alleen de fantasie van de klant beperkt ons</p>
+                            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Ontdek onze diensten</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- About-->
+            <section class="page-section bg-primary" id="about">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="text-white mt-0">Onze diensten</h2>
+                            <hr class="divider light my-4" />
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Balustrades</p>
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Tegenpoorten</p>
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Schanskorven</p>
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Gesmede hekken</p>
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Paneelomheiningen</p>
+                            <p class="text-white-50 mb-4"><i class="fas fa-hand-point-right"></i> Lasergesneden hekken</p>
+                            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Lees meer over onze diensten !</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services-->
+            <section class="page-section" id="services">
+                <div class="container">
+                    <h2 class="text-center mt-0">Bekijk de galerij van ons werk</h2>
+                    <hr class="divider my-4" />
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="mt-5">
+                                <i class="fas fa-4x fa-check-circle text-primary mb-4"></i>
+                                <h3 class="h4 mb-2">Deuren</h3>
+                                <p class="text-muted mb-0">Ontdek de galerij van onze deuren <a href="nl/portes">hier</a></p>                         
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="mt-5">
+                                <i class="fas fa-4x fa-check-circle text-primary mb-4"></i>
+                                <h3 class="h4 mb-2">Hekken</h3>
+                                <p class="text-muted mb-0">Ontdek de galerij van onze omheiningen <a href="nl/clotures">hier</a> </p> 
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="mt-5">
+                                <i class="fas fa-4x fa-check-circle text-primary mb-4"></i>
+                                <h3 class="h4 mb-2">Balustrades</h3>
+                                <p class="text-muted mb-0">Ontdek de galerij van onze balustrades <a href="nl/balustrades">hier</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contact-->
+            <section class="page-section" id="contact">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="mt-0">Neem contact op!</h2>
+                            <hr class="divider my-4" />
+                            <p class="text-muted mb-5">Hier vindt u onze contactgegevens en kunt u onderstaand formulier invullen om contact met ons op te nemen !</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                            <div>Frans: 0494586703</div>
+                            <div class="mt-3">Nederlands: 0494586703</div>
+                        </div>
+                        <div class="col-lg-6 mr-auto text-center">
+                            <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                            {{ form_start(formNl) }}
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        {{form_row(formNl.naam)}}
+                                    </div>
+                                    <div class="col-lg-8">
+                                        {{form_row(formNl.voornaam)}}
+                                    </div>
+                                    <div class="col-lg-8">
+                                        {{form_row(formNl.email)}}
+                                    </div>
+                                    <div class="col-lg-8">
+                                        {{form_row(formNl.message)}}
+                                    </div>
+                                </div>
+                            {{ form_end(formNl) }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endblock %}
+        <!-- Footer-->
+        <footer class="bg-light py-3">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - M&I BRAM-STER</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
