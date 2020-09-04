@@ -33,39 +33,6 @@ class FakerFixtures extends Fixture
         $manager->persist($folder2);
         $manager->persist($folder3);
 
-        /*for($i=0; $i<30; $i++){
-
-            $image = new Images();
-            $image
-            ->setUrl($faker->imageUrl(200,200, 'cats'))
-            ->setLocalPath($faker->imageUrl(600,600, 'cats'));
-            $folder1->addImage($image);
-
-            $manager->persist($image);
-        }
-
-        for($i=0; $i<30; $i++){
-
-            $image = new Images();
-            $image
-            ->setUrl($faker->imageUrl(600,600, 'cats'))
-            ->setLocalPath($faker->imageUrl(600,600, 'cats'));
-            $folder2->addImage($image);
-
-            $manager->persist($image);
-        }
-
-        /*for($i=0; $i<30; $i++){
-
-            $image = new Images();
-            $image
-            ->setUrl($faker->imageUrl(600,600, 'cats'))
-            ->setLocalPath($faker->imageUrl(600,600, 'cats'));
-            $folder3->addImage($image);
-
-            $manager->persist($image);
-        }*/
-
         $roleAdmin = new Role();
         $roleAdmin
         ->setName("ROLE_ADMIN");
@@ -78,6 +45,22 @@ class FakerFixtures extends Fixture
         ->setPassword($this->encoder->encodePassword($user, "domad1997"))
         ->addRole($roleAdmin);
 
+        $userMarcin = new User();
+
+        $userMarcin
+        ->setPseudo("marcinP")
+        ->setPassword($this->encoder->encodePassword($user, "egCRnt5Fbs5xRFMx"))
+        ->addRole($roleAdmin);
+
+        $userIrek = new User();
+
+        $userIrek
+        ->setPseudo("ireneuszD")
+        ->setPassword($this->encoder->encodePassword($user, "ZufFbkQ4KQadkq7D"))
+        ->addRole($roleAdmin);
+
+        $manager->persist($userMarcin);
+        $manager->persist($userIrek);
         $manager->persist($user);
         $manager->flush();
     }
