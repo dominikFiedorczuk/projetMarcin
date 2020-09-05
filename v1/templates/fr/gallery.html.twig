@@ -2,7 +2,6 @@
 
 {% block scripts %}
     <link rel="stylesheet" href="/css/scripts/lightbox.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/js/scripts/lightbox.js"></script>
     <script>
         function appearImage(img){
@@ -21,21 +20,21 @@
                         <h5 class="text-uppercase text-white font-weight-bold">Decouvrez aussi la galerie des</h5>
                     </div>
                     <div class="row justify-content-center mb-3">
-                        <div class="col">
+                        <div class="col-sm-8">
                             {% if folderName == "Portes" %}
                                 <a class="text-uppercase text-orange font-weight-bold" href="/fr/portes" class="mr-3">Portes</a>
                             {% else %}
                                 <a class="text-uppercase text-white font-weight-bold" href="/fr/portes" class="mr-3">Portes</a>
                             {% endif %}
                         </div>
-                        <div class="col">
+                        <div class="col-sm-8">
                             {% if folderName == "Clôtures" %}
                                 <a class="text-uppercase text-orange font-weight-bold" href="/fr/clotures">Clôtures</a>
                             {% else %}   
                                 <a class="text-uppercase text-white font-weight-bold" href="/fr/clotures">Clôtures</a> 
                             {% endif %}
                         </div>
-                        <div class="col">
+                        <div class="col-sm-8">
                             {% if folderName == "Balustrades" %}
                                 <a class="text-uppercase text-orange font-weight-bold" href="/fr/balustrades" class="mr-3">Balustrades</a>  
                             {% else %}
@@ -54,7 +53,7 @@
                     {% endfor %}
                     {% if photos is empty %}
                         <div class="container text-center mt-5">
-                            <h1 class=" display-8 text-uppercase text-white font-weight-bold">Aucune photo disponible dans notre gallerie pour l'instant</h1>
+                            <h4 class="display-8 text-uppercase text-white font-weight-bold">Aucune photo disponible dans notre gallerie pour l'instant</h4>
                         </div>
                     {% endif %}
                 </div>

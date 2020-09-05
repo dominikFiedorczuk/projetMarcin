@@ -10,3 +10,17 @@ img {
     width: 200px;
     height: 200px;
 }
+
+.responsive {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .n-responsive {
+        display: none;
+
+    }
+    .responsive {
+        display: inline;
+    }
+}

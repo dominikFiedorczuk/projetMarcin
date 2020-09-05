@@ -18,17 +18,24 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
         <link href="/css/style.css" rel="stylesheet" />
-
-        {% block scripts %}
-        {% endblock %}
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="/fr#page-top"><img src="/img/icon.png" style="height: 40px" alt="logo"></a>
-                <a class="navbar-brand js-scroll-trigger" id="fr" href="{{path('lang', {'lang': 'fr'})}}" style="color: orange"><span class="flag-icon flag-icon-fr"> </span> Français</a> 
-                <a class="navbar-brand js-scroll-trigger" id="nl" href="{{path('lang', {'lang': 'nl'})}}"><span class="flag-icon flag-icon-nl"> </span> Nederlands</a>
+                <a class="navbar-brand js-scroll-trigger" href="/fr#page-top">
+                    <img src="/img/icon.png" style="height: 40px" alt="logo">
+                </a>
+                <a class="navbar-brand js-scroll-trigger" id="fr" href="{{path('lang', {'lang': 'fr'})}}" style="color: orange">
+                    <span class="flag-icon flag-icon-fr"> </span> 
+                    <span class="n-responsive">Français </span> 
+                    <span class="responsive">FR</span>
+                </a> 
+                <a class="navbar-brand js-scroll-trigger" id="nl" href="{{path('lang', {'lang': 'nl'})}}">
+                    <span class="flag-icon flag-icon-nl"> </span> 
+                    <span class="n-responsive">Néerlandais </span> 
+                    <span class="responsive">NL</span>
+                </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -119,7 +126,7 @@
                         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
                             <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
                             <div>Français: 0494586703</div>
-                            <div class="mt-1">Néerlandais: 0494586703</div>
+                            <div class="mt-1">Néerlandais: 0479087104</div>
                         </div>
                         <div class="col-lg-6 mr-auto text-center">
                             <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
@@ -156,5 +163,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
+        {% block scripts %}
+        {% endblock %}
     </body>
 </html>
