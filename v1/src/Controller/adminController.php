@@ -142,7 +142,7 @@ class adminController extends AbstractController {
                 $uploader->upload($uploadDir, $file, $fileName);
 
                 $image
-                ->setUrl('http://localhost:8000/img/'.$fileName)
+                ->setUrl('http://localhost:8000/img/gallery/'.$fileName)
                 ->setLocalPath($uploadDir.'/'.$fileName);
                 
                 $idFolder

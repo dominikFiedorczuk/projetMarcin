@@ -37,9 +37,9 @@
                     {% for key, value in folderImagesCompare %}
                         <div class="row justify-content-center mb-5" id="{{value.id}}">
                             <img class="rounded mr-5" src="{{value.url}}" alt="">
-                            <img class="rounded float-right" src="{{value.urlToCompare}}" alt="">
+                            <img class="rounded float-right mr-5" src="{{value.urlToCompare}}" alt="">
 
-                            <button type="button" data-action="delete" data-target="{{value.id}}" class="btn btn-danger">X</button>
+                            <button type="button" data-action="delete" data-target="{{value.id}}" class="btn btn-danger" style="height: 50px">X</button>
                         </div>
                     {% endfor %}
                 {% else %}
