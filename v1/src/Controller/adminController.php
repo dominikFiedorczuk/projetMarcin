@@ -238,4 +238,30 @@ class adminController extends AbstractController {
 
         return new Response("");
     }
+
+    /**
+     * @Route("deleteCompare", name="del_compare")
+     */
+    public function deleteCompare(Request $request, string $uploadDir){
+        $manager = $this->getDoctrine()->getManager();
+
+        if($request->isMethod('post')){
+            $data = $request->request->all();
+            $fileSystem = new Filesystem();
+
+            $compare = $manager
+            ->getRepository(ImagesCompare::class)
+            ->findOneById($data['id']);
+
+            unlink($compare->getLocalPath());
+            unlink($compare->getLocalPathToCompare());
+
+            $manager->remove($compare);
+
+            $manager->flush();
+
+        }
+        
+        return new Response("");
+    }
 }

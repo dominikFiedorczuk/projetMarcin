@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("select").imagepicker();
+    deleteRow();
 })
 
 function pickAndDelete(csrf){
@@ -24,5 +25,20 @@ function pickAndDelete(csrf){
 
         window.location.reload();
     }
+}
+
+function deleteRow(){
+    $('button[data-action="delete"]').click(function(){
+        const target = this.dataset.target;
+        $('#'+target).remove();
+
+        $.ajax({
+            url: "/deleteCompare",
+            method: "POST",
+            data: {
+                id: target
+            }
+        })
+    });
 }
 
