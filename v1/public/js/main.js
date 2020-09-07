@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("select").imagepicker()
+    $("select").imagepicker();
 })
 
 function pickAndDelete(csrf){

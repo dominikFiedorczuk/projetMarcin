@@ -1,0 +1,63 @@
+{% extends 'admin/base.html.twig' %}
+{% form_theme form _self %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            addImages();
+        })
+
+        function addImages(){
+        var index = 0;
+        $('#addImages').click(function(){
+            index++;
+            const form = $('#add_images_images').data('prototype').replace(/__name__/g, index);
+
+            $('#add_images_images').append(form);
+            deleteRow(); 
+        });  
+    }
+
+    function deleteRow(){
+        $('button[data-action="delete"]').click(function(){
+            const target = this.dataset.target;
+            $(target).remove();
+
+        });
+    }
+    </script>
+{% endblock %}
+{% block main %}
+    <div class="text-center mb-4 mt-4">
+        <h1>Dodanie zdjec</h1>
+        <h3>{{folder.name}}</h3>
+    </div>
+
+    {{form_start(form)}}
+    {{form_end(form)}}
+
+{% endblock %}
+
+{% block _add_images_images_widget %}
+    {{form_widget(form)}}   
+
+    <div class="form-group text-center">
+        <button type="button" id="addImages" class="btn btn-success"><b>Dodaj kolejne porownanie</b></button>
+    </div>
+{% endblock %}
+
+{% block _add_images_images_entry_widget %}
+    <div class="row d-flex justify-content-center" id="block_{{id}}">
+        <div class="col-md-4">
+            {{form_label(form.localPath, 'Zdjecie')}}
+            {{form_widget(form.localPath)}}
+        </div>
+        <div class="col-md-4">
+            {{form_label(form.localPathToCompare, 'Zdjecie do porownania')}}
+            {{form_widget(form.localPathToCompare)}}
+        </div>
+        <div class="col-md-1">
+            <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
+        </div>
+    </div>
+{% endblock %}

@@ -12,17 +12,25 @@
         <h1>Zarządzanie galerią</h1>
         <h3>{{folder.name}}</h3>
     </div>
-        {% if folderImages is empty %}
+        {% if folderImages is empty or folderImagesCompare is empty %}
             <div class="row justify-content-center">
                 <h3 style="color: red">Brak dostępnych zdjęć !</h3>
             </div>
             <div class="row justify-content-center mt-3">
-                <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                {% if folder.name == "Renowacje" %}
+                    <a href="{{path('add_compare', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                {% else %}
+                    <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                {% endif %}
             </div>
         {% else %}
             <div class="container">
                 <div class="row justify-content-center">
-                    <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                    {% if folder.name == "Renowacje" %}
+                        <a href="{{path('add_compare', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                    {% else %}
+                        <a href="{{path('add_images', {idFolder: folder.id})}}" class="btn btn-primary btn-lg mb-3">+</a>
+                    {% endif %}
                 </div>
                 <div class="row">
                     <select multiple="multiple" name="image" class="image-picker show-html">

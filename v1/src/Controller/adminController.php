@@ -6,8 +6,11 @@ use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Images;
 use App\Entity\Folders;
+use App\Form\AddImagesType;
+use App\Entity\ImagesCompare;
 use App\Service\FileUploader;
 use App\Form\AdminProfileType;
+use App\Form\UploadImagesType;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -105,12 +108,17 @@ class adminController extends AbstractController {
         ->getRepository(Images::class)
         ->findByfolder($id);
 
+        $folderImagesCompare = $manager
+        ->getRepository(ImagesCompare::class)
+        ->findByfolder($id);
+
         return $this->render(
             'admin/adminGallery.html.twig',
             [
                 'galeries' =>  $galeries,
                 'folderImages' => $folderImages,
-                'folder' => $id
+                'folder' => $id,
+                'folderImagesCompare' => $folderImagesCompare
             ]
         );
     }
@@ -150,6 +158,56 @@ class adminController extends AbstractController {
             [
                 'galeries' => $galeries,
                 'folder' => $idFolder
+            ]
+        );
+    }
+
+    /**
+     * @Route("admin/addImagesCompare/{idFolder}", name="add_compare")
+     */
+    public function addImagesCompare(Folders $idFolder, Request $request, string $uploadDir, FileUploader $uploader){
+        $manager = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AddImagesType::class);
+
+        $galeries = $manager
+        ->getRepository(Folders::class)
+        ->findAll();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $files = $form->get('images');
+            foreach($files as $key => $value){
+                $images = new ImagesCompare();
+                $file =  $value->get('localPath')->getData();
+                $fileToCompare = $value->get('localPathToCompare')->getData();
+                $fileName = $file->getClientOriginalName();
+                $fileNameToCompare = $fileToCompare->getClientOriginalName();
+                $uploader->upload($uploadDir, $file, $fileName);
+                $uploader->upload($uploadDir, $fileToCompare, $fileNameToCompare);
+
+                $images
+                ->setUrl('http://localhost:8000/img/gallery/'.$fileName)
+                ->setUrlToCompare('http://localhost:8000/img/gallery/'.$fileNameToCompare)
+                ->setLocalPath($uploadDir.'/'.$fileName)
+                ->setLocalPathToCompare($uploadDir.'/'.$fileNameToCompare);
+                
+                $idFolder
+                ->addImagesCompare($images);
+
+                $manager->persist($images);
+            }
+
+            $manager->flush();
+            return $this->redirectToRoute('galleryAdmin', ['id' => $idFolder->getId()]);
+        }
+
+        return $this->render(
+            'admin/addImagesCompare.html.twig',
+            [  
+                'galeries' => $galeries,
+                'folder' => $idFolder,
+                'form'  => $form->createView()
             ]
         );
     }

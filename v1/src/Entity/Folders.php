@@ -29,9 +29,15 @@ class Folders
      */
     private $images;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ImagesCompare::class, mappedBy="folder")
+     */
+    private $imagesCompares;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->imagesCompares = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,6 +82,37 @@ class Folders
             // set the owning side to null (unless already changed)
             if ($image->getFolder() === $this) {
                 $image->setFolder(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ImagesCompare[]
+     */
+    public function getImagesCompares(): Collection
+    {
+        return $this->imagesCompares;
+    }
+
+    public function addImagesCompare(ImagesCompare $imagesCompare): self
+    {
+        if (!$this->imagesCompares->contains($imagesCompare)) {
+            $this->imagesCompares[] = $imagesCompare;
+            $imagesCompare->setFolder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImagesCompare(ImagesCompare $imagesCompare): self
+    {
+        if ($this->imagesCompares->contains($imagesCompare)) {
+            $this->imagesCompares->removeElement($imagesCompare);
+            // set the owning side to null (unless already changed)
+            if ($imagesCompare->getFolder() === $this) {
+                $imagesCompare->setFolder(null);
             }
         }
 

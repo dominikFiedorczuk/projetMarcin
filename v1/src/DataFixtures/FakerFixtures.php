@@ -25,13 +25,16 @@ class FakerFixtures extends Fixture
         $folder1 = new Folders();
         $folder2 = new Folders();
         $folder3 = new Folders();
+        $folder4 = new Folders();
         $folder1->setName("Ogrodzenia");
         $folder2->setName("Bramy");
         $folder3->setName("Balustrady");
+        $folder4->setName("Renowacje");
 
         $manager->persist($folder1);
         $manager->persist($folder2);
         $manager->persist($folder3);
+        $manager->persist($folder4);
 
         $roleAdmin = new Role();
         $roleAdmin

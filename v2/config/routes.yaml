@@ -1,4 +1,0 @@
-#index:
-#    path: /nl
-#    controller: App\Controller\homeController::lang
-

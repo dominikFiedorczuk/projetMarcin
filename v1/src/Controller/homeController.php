@@ -7,6 +7,7 @@ use App\Entity\Images;
 use App\Entity\Folders;
 use App\Form\ContactFrType;
 use App\Form\ContactNlType;
+use App\Entity\ImagesCompare;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -126,6 +127,17 @@ class homeController extends AbstractController {
                     ->findByfolder($folder);
 
                     $folderName= "Clôtures";
+                break;
+                case 'renovations' : 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Renowacje");
+                    
+                    $photos = $manager
+                    ->getRepository(ImagesCompare::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Renovations";
                 break;
             }
 
