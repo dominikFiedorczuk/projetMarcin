@@ -23,7 +23,7 @@ function deleteRow(){
 }
 
 function getFileName(){
-    $('input[type="file"]').click(function(e){
+    $('input').click(function(e){
         var fileName = e.target.files[0].name;
         alert('The file "' + fileName +  '" has been selected.');
     });

@@ -184,6 +184,18 @@ class homeController extends AbstractController {
 
                     $folderName= "Hekken";
                 break;
+
+                case 'renovations' : 
+                    $folder = $manager
+                    ->getRepository(Folders::class)
+                    ->findByname("Renowacje");
+                    
+                    $photos = $manager
+                    ->getRepository(ImagesCompare::class)
+                    ->findByfolder($folder);
+
+                    $folderName= "Renovaties";
+                break;
             }
                 
             return $this->render(
