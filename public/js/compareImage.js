@@ -21,3 +21,11 @@ function deleteRow(){
 
     });
 }
+
+function getFileName(){
+    $('#add_images_images').change(function(k){
+        let fileName = k.target.files[0].name;
+        let target = $(k.target).attr('id');
+        $('#'+target).next('.custom-file-label').html(fileName);
+    })
+}

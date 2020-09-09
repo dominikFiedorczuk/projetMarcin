@@ -18,6 +18,9 @@ class UploadImagesType extends AbstractType
             ->add('localPath', FileType::class,
             [
                 'label' => "Pierwsze zdjecie",
+                'attr' => [
+                    'placeholder' => "Wybierz zdjecie type PNG lub JPG"
+                ],
                 'constraints' => [
                     new File([
                         'maxSize' => '1000000k',
@@ -32,6 +35,9 @@ class UploadImagesType extends AbstractType
             ->add('localPathToCompare', FileType::class,
             [
                 'label' => "Zdjecie do porownania",
+                'attr' => [
+                    'placeholder' => "Wybierz zdjecie type PNG lub JPG"
+                ],
                 'constraints' => [
                     new File([
                         'maxSize' => '1000000k',
