@@ -21,10 +21,3 @@ function deleteRow(){
 
     });
 }
-
-function getFileName(){
-    $('input').click(function(e){
-        var fileName = e.target.files[0].name;
-        alert('The file "' + fileName +  '" has been selected.');
-    });
-}
